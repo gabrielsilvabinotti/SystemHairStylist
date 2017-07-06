@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.bean.Login;
 import sun.util.logging.PlatformLogger;
 
 /**
@@ -15,7 +16,7 @@ import sun.util.logging.PlatformLogger;
  */
 public class LoginDAO {
     
-    public boolean ValidaLogin(String login, String senha){
+    public boolean ValidaLogin(Login log){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -24,8 +25,8 @@ public class LoginDAO {
         
         try{
             stmt = con.prepareStatement("SELECT * FROM tb_login WHERE login = ? AND senha = ?");
-            stmt.setString(1, login);
-            stmt.setString(2, senha);
+            stmt.setString(1, log.getLogin());
+            stmt.setString(2, log.getSenha());
             
             rs = stmt.executeQuery();
             
@@ -35,7 +36,7 @@ public class LoginDAO {
         }catch(SQLException erro){
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE,null, erro);
         }finally{
-        
+        ConnectionFactory.closeConnection(con,stmt,rs);
     }
         return valida;
     }

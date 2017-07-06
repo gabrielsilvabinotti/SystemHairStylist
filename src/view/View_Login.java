@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.bean.Login;
 import model.dao.LoginDAO;
 
 /**
@@ -100,18 +101,21 @@ public class View_Login extends javax.swing.JFrame {
 
     private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
         LoginDAO log_dao = new LoginDAO();
+        Login log = new Login();
         try{
            if(ValidaCampo()){
+               JOptionPane.showMessageDialog(null, "Passou 1","Acesso Negado",JOptionPane.ERROR_MESSAGE);
                String senha = String.valueOf(tx_senha.getPassword());
-               if(log_dao.ValidaLogin(tx_login.getText(), senha)){
-                   new View_Dashboard().setVisible(true);
-                   this.dispose();
+               log.setLogin(tx_login.getText());
+               log.setSenha(senha);
+               if(log_dao.ValidaLogin(log)){
+                   JOptionPane.showMessageDialog(null, "Entrou","Acesso Negado",JOptionPane.ERROR_MESSAGE);
                }else{
                    JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorreta","Acesso Negado",JOptionPane.ERROR_MESSAGE);
                }
            } 
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null,e,"Acesso Negado",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bt_entrarActionPerformed
 
