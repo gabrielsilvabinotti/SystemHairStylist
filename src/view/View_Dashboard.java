@@ -27,18 +27,76 @@ public class View_Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tab_agendamento = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_cad = new javax.swing.JMenu();
+        sub_menu_cad_cliente = new javax.swing.JMenuItem();
+        sub_menu_cad_servico = new javax.swing.JMenuItem();
+        sub_menu_agendar = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HairDesser System");
+        setResizable(false);
+
+        tab_agendamento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tab_agendamento);
+
+        menu_cad.setText("Cadastrar");
+
+        sub_menu_cad_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        sub_menu_cad_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
+        sub_menu_cad_cliente.setText("Cliente");
+        menu_cad.add(sub_menu_cad_cliente);
+
+        sub_menu_cad_servico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        sub_menu_cad_servico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Servico.png"))); // NOI18N
+        sub_menu_cad_servico.setText("Serviço");
+        menu_cad.add(sub_menu_cad_servico);
+
+        jMenuBar1.add(menu_cad);
+
+        sub_menu_agendar.setText("Agendamento");
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Agenda.png"))); // NOI18N
+        jMenuItem3.setText("Agendar Hora");
+        sub_menu_agendar.add(jMenuItem3);
+
+        jMenuBar1.add(sub_menu_agendar);
+
+        jMenu3.setText("Sair");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -81,5 +139,14 @@ public class View_Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenu menu_cad;
+    private javax.swing.JMenu sub_menu_agendar;
+    private javax.swing.JMenuItem sub_menu_cad_cliente;
+    private javax.swing.JMenuItem sub_menu_cad_servico;
+    private javax.swing.JTable tab_agendamento;
     // End of variables declaration//GEN-END:variables
 }

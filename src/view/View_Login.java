@@ -104,12 +104,12 @@ public class View_Login extends javax.swing.JFrame {
         Login log = new Login();
         try{
            if(ValidaCampo()){
-               JOptionPane.showMessageDialog(null, "Passou 1","Acesso Negado",JOptionPane.ERROR_MESSAGE);
                String senha = String.valueOf(tx_senha.getPassword());
                log.setLogin(tx_login.getText());
                log.setSenha(senha);
                if(log_dao.ValidaLogin(log)){
-                   JOptionPane.showMessageDialog(null, "Entrou","Acesso Negado",JOptionPane.ERROR_MESSAGE);
+                  new View_Dashboard().setVisible(true);
+                  this.dispose();
                }else{
                    JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorreta","Acesso Negado",JOptionPane.ERROR_MESSAGE);
                }
