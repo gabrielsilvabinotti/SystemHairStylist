@@ -59,6 +59,11 @@ public class View_Dashboard extends javax.swing.JFrame {
         sub_menu_cad_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         sub_menu_cad_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
         sub_menu_cad_cliente.setText("Cliente");
+        sub_menu_cad_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sub_menu_cad_clienteMousePressed(evt);
+            }
+        });
         menu_cad.add(sub_menu_cad_cliente);
 
         sub_menu_cad_servico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -102,6 +107,10 @@ public class View_Dashboard extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sub_menu_cad_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_menu_cad_clienteMousePressed
+        new View_Cad_Cliente(this,rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_sub_menu_cad_clienteMousePressed
 
     /**
      * @param args the command line arguments
